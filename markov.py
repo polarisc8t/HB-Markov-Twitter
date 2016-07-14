@@ -79,8 +79,9 @@ def tweet(chains):
     # to make sure these environmental variables are set.
 
     statuses = api.GetUserTimeline(screen_name="hackbright_jane", count=1)
-    status = api.PostUpdate(chains)
     print([s.text for s in statuses])
+
+    status = api.PostUpdate(chains)
     print chains
     # print(status)
 
