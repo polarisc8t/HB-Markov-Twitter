@@ -62,6 +62,7 @@ def make_text(chains):
         words.append(word)
         key = (key[1], word)
 
+    #convert list of words into a single string
     complete_string = " ".join(words)
     #convert string into a list of characters
     complete_string = list(complete_string)
@@ -77,8 +78,11 @@ def tweet(chains):
     # Note: you must run `source secrets.sh` before running this file
     # to make sure these environmental variables are set.
 
+    statuses = api.GetUserTimeline(screen_name="hackbright_jane", count=1)
     status = api.PostUpdate(chains)
-    print status.text
+    print([s.text for s in statuses])
+    print chains
+    # print(status)
 
 # Get the filenames from the user through a command line prompt, ex:
 # python markov.py green-eggs.txt shakespeare.txt
